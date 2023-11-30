@@ -35,7 +35,7 @@ int inserirInicio (Produto produto, Estoque *estoque){
     
     return 0; //alocacao mal sucedida
   }
-  for (int i = estoque->qtdProdutos; i < 0; i--){
+  for (int i = estoque->qtdProdutos; i > 0; i--){
     estoque->produtos [i] = estoque->produtos [i - 1];
   }
   estoque->produtos[0] = produto;
