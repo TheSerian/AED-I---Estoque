@@ -67,6 +67,12 @@ int main() {
           break;
 
       case '6':
+          printf("Informe a id do produto: ");
+          scanf("%i", &id);
+          getchar();
+          removerValor (id, &estoque);
+          break;
+      
       case '7':
       case '8':
       case '0':
