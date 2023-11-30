@@ -124,6 +124,22 @@ int removerPosicao (int posicao, Estoque *estoque){
     return 1;
   }
 
-int removerValor (int id, Estoque *estoque);
+int removerValor (int id, Estoque *estoque){
+  if(estoque->qtdProdutos == 0){
+    printf("Estoque vazio, impossivel remover.\n");
+
+    return 0;
+  }
+  for (int i = 0; i < estoque->qtdProdutos; i++){
+    if (estoque->produtos[i].id == id){
+      estoque->produtos[i] = estoque->produtos[i+1];
+    }else{
+      printf("Nao existe um produto com esse id no estoque.\n");
+    }
+    printf("Remocao bem sucedida.\n");
+  }
+
+  return 1;
+}
 int procurar (int id, Estoque *estoque);
 int tamanho (Estoque *estoque);
