@@ -14,6 +14,7 @@ typedef struct{ //organização do estoque
   int qtdProdutos;
 } Estoque;
 
+void informacoesProduto (Produto *produto);
 int inserirInicio (Produto produto, Estoque *estoque);
 int inserirFim (Produto produto, Estoque *estoque);
 int inserirPosicao (Produto produto, int posicao, Estoque *estoque);
