@@ -3,7 +3,7 @@
 
 typedef struct{ //estrutura do produto
   int id;
-  char descricao[50];
+  char descricao[51];
   int categoria;
   float valor;
   int quantidade;
