@@ -136,8 +136,9 @@ int removerValor (int id, Estoque *estoque){
     }else{
       printf("Nao existe um produto com esse id no estoque.\n");
     }
-    printf("Remocao bem sucedida.\n");
   }
+  printf("Remocao bem sucedida.\n");
+  estoque->qtdProdutos--;
 
   return 1;
 }
