@@ -38,13 +38,13 @@ int main() {
         getchar();
         inserirInicio (produto, &estoque);
         break;
-      
+
       case '2':
         informacoesProduto (&produto);
         getchar();
         inserirFim (produto, &estoque);
         break;
-      
+
       case '3':
         printf("Posicoes disponiveis: %i\n", estoque.qtdProdutos + 1);
         printf("Informe a posicao na qual deseja inserir o produto: ");
@@ -53,25 +53,26 @@ int main() {
         getchar();
         inserirPosicao (produto, posicao - 1, &estoque);
         break;
-      
+
       case '4':
-        listar (estoque);
-        break;
-      
+          listar (estoque);
+          break;
+
       case '5':
-        printf("Posicoes disponiveis: %i\n", estoque.qtdProdutos + 1);
-        printf("Informe a posicao na qual deseja remover o produto: ");
-        scanf("%i", &posicao);
-        removerPosicao (posicao - 1, &estoque);
-        break;
-      
+          printf("Posicoes disponiveis: %i\n", estoque.qtdProdutos + 1);
+          printf("Informe a posicao na qual deseja remover o produto: ");
+          scanf("%i", &posicao);
+          getchar();
+          removerPosicao(posicao - 1, &estoque);
+          break;
+
       case '6':
       case '7':
       case '8':
       case '0':
         printf("Encerrando o programa...\n");
         break;
-      
+
       default:
         printf("Opcao invalida.\n");
         getchar();
@@ -80,5 +81,5 @@ int main() {
 
   free(estoque.produtos);
 
-  return 0;  
+  return 0;
 }
