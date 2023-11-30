@@ -102,7 +102,28 @@ void listar (Estoque estoque){
       j++;
   }
 }
-int removerPosicao (int posicao, Estoque *estoque);
+
+int removerPosicao (int posicao, Estoque *estoque){
+  if(estoque->qtdProdutos == 0){
+    printf("Estoque vazio, impossivel remover.\n");
+
+    return 0;
+  }
+
+  if (posicao < 0 || posicao > estoque->qtdProdutos){
+    printf("Posicao invalida.\n");
+
+    return 0;
+  }
+  for (int i = posicao; i < estoque->qtdProdutos; i++){
+    estoque->produtos[i] = estoque->produtos[i+1];
+  }
+    estoque->qtdProdutos--;
+    printf("Remocao bem sucedida.\n");
+
+    return 1;
+}
+
 int removerValor (int id, Estoque *estoque);
 int procurar (int id, Estoque *estoque);
 int tamanho (Estoque *estoque);
