@@ -36,7 +36,7 @@ int inserirInicio (Produto produto, Estoque *estoque){
     return 0; //alocacao mal sucedida
   }
   for (int i = estoque->qtdProdutos; i < 0; i--){
-    estoque->produtos [i] = estoque->produtos [i--];
+    estoque->produtos [i] = estoque->produtos [i - 1];
   }
   estoque->produtos[0] = produto;
   estoque->qtdProdutos++;
@@ -76,7 +76,7 @@ int inserirPosicao (Produto produto, int posicao, Estoque *estoque){
     return 0; //alocacao mal sucedida
   }
   for (int i = estoque->qtdProdutos; i > posicao; i--){
-    estoque->produtos[i] = estoque->produtos[i--];
+    estoque->produtos[i] = estoque->produtos[i - 1];
   }
   estoque->produtos[posicao] = produto;
   estoque->qtdProdutos++;
@@ -85,7 +85,23 @@ int inserirPosicao (Produto produto, int posicao, Estoque *estoque){
   return 1;
   
 }
-void listar (Estoque estoque);
+
+void listar (Estoque estoque){
+  if(estoque.qtdProdutos == 0){
+      printf("Estoque vazio\n");
+      return;
+  }
+  printf("Lista de Produtos no Estoque:\n");
+  int j = 0;
+  for(int i = 0; i < estoque.qtdProdutos; i++){
+      printf("\nProduto %i: %s\n", j + 1, estoque.produtos[i].descricao);
+      printf("ID: %i\n", estoque.produtos[i].id);
+      printf("Categoria: %i\n", estoque.produtos[i].categoria);
+      printf("Valor: %.2f reais\n", estoque.produtos[i].valor);
+      printf("Quantidade: %i\n", estoque.produtos[i].quantidade);
+      j++;
+  }
+}
 int removerPosicao (int posicao, Estoque *estoque);
 int removerValor (int id, Estoque *estoque);
 int procurar (int id, Estoque *estoque);
