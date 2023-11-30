@@ -46,8 +46,12 @@ int main() {
         break;
       
       case '3':
+        printf("Posicoes disponiveis: %i\n", estoque.qtdProdutos + 1);
+        printf("Informe a posicao na qual deseja inserir o produto: ");
+        scanf("%i", &posicao - 1);
         informacoesProduto (&produto);
         getchar();
+        inserirPosicao (produto, posicao, &estoque);
         break;
       
       case '4':
