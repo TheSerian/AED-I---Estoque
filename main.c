@@ -38,25 +38,33 @@ int main() {
         getchar();
         inserirInicio (produto, &estoque);
         break;
+      
       case '2':
         informacoesProduto (&produto);
         getchar();
+        inserirFim (produto, &estoque);
         break;
+      
       case '3':
         informacoesProduto (&produto);
         getchar();
         break;
+      
       case '4':
       case '5':
       case '6':
       case '7':
       case '8':
       case '0':
+      printf("Encerrando o programa...\n");
+      break;
+      
       default:
         printf("Opcao invalida.\n");
     }
   }while (opcao != '0');
 
+  free(estoque.produtos);
 
-return 0;  
+  return 0;  
 }
