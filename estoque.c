@@ -9,18 +9,18 @@
 void informacoesProduto (Produto *produto){
   printf("Insira o numero de identificacao do produto: ");
   scanf("%i", &produto->id);
-  
-  printf("Insira a descricao do produto (max. 50 caracteres):" );
+
+  printf("Insira a descricao do produto (max. 50 caracteres): " );
   getchar();
   fgets(produto->descricao, 51, stdin);
   produto->descricao[strcspn(produto->descricao, "\n")] = '\0';
-  
+
   printf("Insira a categoria do produto: ");
   scanf("%i", &produto->categoria);
-  
+
   printf("Insira o valor (em reais) do produto: ");
   scanf("%f", &produto->valor);
-  
+
   printf("Insira a quantidade do produto: ");
   scanf("%i", &produto->quantidade);
 
@@ -32,16 +32,16 @@ int inserirInicio (Produto produto, Estoque *estoque){
   }
   if (estoque->produtos == NULL){
     printf("Erro de alocacao de memoria.\n");
-    
+
     return 0; //alocacao mal sucedida
   }
   for (int i = estoque->qtdProdutos; i > 0; i--){
-    estoque->produtos [i] = estoque->produtos [i - 1];
+    estoque->produtos [i] = estoque->produtos [i-1];
   }
   estoque->produtos[0] = produto;
   estoque->qtdProdutos++;
   printf("Insercao bem sucedida.\n");
-  
+
   return 1;
 }
 
@@ -51,20 +51,20 @@ int inserirFim (Produto produto, Estoque *estoque){
   }
   if (estoque->produtos == NULL){
     printf("Erro de alocacao de memoria.\n");
-    
+
     return 0; //alocacao mal sucedida
   }
   estoque->produtos[estoque->qtdProdutos] = produto;
   estoque->qtdProdutos++;
   printf("Insercao bem sucedida.\n");
-  
+
   return 1;
 }
 
 int inserirPosicao (Produto produto, int posicao, Estoque *estoque){
   if (posicao < 0 || posicao > estoque->qtdProdutos){
     printf("Posicao invalida.\n");
-    
+
     return 0;
   }
   if (estoque->qtdProdutos % tamanho_incremento == 0){
@@ -72,57 +72,57 @@ int inserirPosicao (Produto produto, int posicao, Estoque *estoque){
   }
   if (estoque->produtos == NULL){
     printf("Erro de alocacao de memoria.\n");
-    
+
     return 0; //alocacao mal sucedida
   }
   for (int i = estoque->qtdProdutos; i > posicao; i--){
-    estoque->produtos[i] = estoque->produtos[i - 1];
+    estoque->produtos[i] = estoque->produtos[i-1];
   }
   estoque->produtos[posicao] = produto;
   estoque->qtdProdutos++;
   printf("Insercao bem sucedida.\n");
 
   return 1;
-  
 }
 
 void listar (Estoque estoque){
-  if(estoque.qtdProdutos == 0){
-      printf("Estoque vazio\n");
-      return;
+    if(estoque.qtdProdutos == 0){
+        printf("Estoque vazio.\n");
+
+        return;
   }
-  printf("Lista de Produtos no Estoque:\n");
-  int j = 0;
-  for(int i = 0; i < estoque.qtdProdutos; i++){
-      printf("\nProduto %i: %s\n", j + 1, estoque.produtos[i].descricao);
-      printf("ID: %i\n", estoque.produtos[i].id);
-      printf("Categoria: %i\n", estoque.produtos[i].categoria);
-      printf("Valor: %.2f reais\n", estoque.produtos[i].valor);
-      printf("Quantidade: %i\n", estoque.produtos[i].quantidade);
-      j++;
+    printf("Lista de Produtos no Estoque:\n");
+    int j = 0;
+    for(int i = 0; i < estoque.qtdProdutos; i++){
+        printf("\nProduto %i: %s\n", j + 1, estoque.produtos[i].descricao);
+        printf("ID: %i\n", estoque.produtos[i].id);
+        printf("Categoria: %i\n", estoque.produtos[i].categoria);
+        printf("Valor: %.2f reais\n", estoque.produtos[i].valor);
+        printf("Quantidade: %i\n", estoque.produtos[i].quantidade);
+        j++;
   }
 }
 
 int removerPosicao (int posicao, Estoque *estoque){
-  if(estoque->qtdProdutos == 0){
-    printf("Estoque vazio, impossivel remover.\n");
+    if(estoque->qtdProdutos == 0){
+        printf("Estoque vazio, impossivel remover.\n");
 
-    return 0;
-  }
+        return 0;
+    }
 
-  if (posicao < 0 || posicao > estoque->qtdProdutos){
-    printf("Posicao invalida.\n");
+    if (posicao < 0 || posicao > estoque->qtdProdutos){
+        printf("Posicao invalida.\n");
 
-    return 0;
-  }
-  for (int i = posicao; i < estoque->qtdProdutos; i++){
+        return 0;
+    }
+    for (int i = posicao; i < estoque->qtdProdutos; i++){
     estoque->produtos[i] = estoque->produtos[i+1];
-  }
+    }
     estoque->qtdProdutos--;
     printf("Remocao bem sucedida.\n");
 
     return 1;
-}
+  }
 
 int removerValor (int id, Estoque *estoque);
 int procurar (int id, Estoque *estoque);
