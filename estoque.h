@@ -10,7 +10,7 @@ typedef struct{ //estrutura do produto
 } Produto;
 
 typedef struct{ //organização do estoque
-  produto *produtos;
+  Produto *produtos;
   int qtdProdutos;
 } Estoque;
 
