@@ -19,7 +19,7 @@ int main() {
     return 1;
   }
   do{
-    printf("1. Inserir produto no inicio do estoque.\n");
+    printf("\n1. Inserir produto no inicio do estoque.\n");
     printf("2. Inserir produto no fim do estoque.\n");
     printf("3. Escolher a posicao na qual o produto sera inserido.\n");
     printf("4. Listar os produtos no estoque.\n");
@@ -55,6 +55,9 @@ int main() {
         break;
       
       case '4':
+        listar (estoque);
+        break;
+      
       case '5':
       case '6':
       case '7':
@@ -65,6 +68,7 @@ int main() {
       
       default:
         printf("Opcao invalida.\n");
+        getchar();
     }
   }while (opcao != '0');
 
