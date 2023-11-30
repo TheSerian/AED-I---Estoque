@@ -40,8 +40,9 @@ int inserirInicio (Produto produto, Estoque *estoque){
   }
   estoque->produtos[0] = produto;
   estoque->qtdProdutos++;
+  printf("Insercao bem sucedida.\n");
   
-  return 1; //insercao bem sucedida
+  return 1;
 }
 
 int inserirFim (Produto produto, Estoque *estoque){
@@ -55,8 +56,9 @@ int inserirFim (Produto produto, Estoque *estoque){
   }
   estoque->produtos[estoque->qtdProdutos] = produto;
   estoque->qtdProdutos++;
+  printf("Insercao bem sucedida.\n");
   
-  return 1; //insercao bem sucedida
+  return 1;
 }
 
 int inserirPosicao (Produto produto, int posicao, Estoque *estoque){
@@ -78,8 +80,9 @@ int inserirPosicao (Produto produto, int posicao, Estoque *estoque){
   }
   estoque->produtos[posicao] = produto;
   estoque->qtdProdutos++;
+  printf("Insercao bem sucedida.\n");
 
-  return 1; //insercao bem sucedida
+  return 1;
   
 }
 void listar (Estoque estoque);
