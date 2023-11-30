@@ -33,6 +33,7 @@ int inserirInicio (Produto produto, Estoque *estoque){
   }
   if (estoque->produtos == NULL){
     printf("Erro de alocacao de memoria.\n");
+    
     return 0; //alocacao mal sucedida
   }
   for (int i = estoque->qtdProdutos; i < 0; i--){
@@ -50,6 +51,7 @@ int inserirFim (Produto produto, Estoque *estoque){
   }
   if (estoque->produtos == NULL){
     printf("Erro de alocacao de memoria.\n");
+    
     return 0; //alocacao mal sucedida
   }
   estoque->produtos[estoque->qtdProdutos] = produto;
@@ -58,7 +60,29 @@ int inserirFim (Produto produto, Estoque *estoque){
   return 1; //insercao bem sucedida
 }
 
-int inserirPosicao (Produto produto, int posicao, Estoque *estoque);
+int inserirPosicao (Produto produto, int posicao, Estoque *estoque){
+  if (posicao < 0 || posicao > estoque->qtdProdutos){
+    printf("Posicao invalida.\n");
+    
+    return 0;
+  }
+  if (estoque->qtdProdutos % tamanho_incremento == 0){
+    estoque->produtos = realloc(estoque->produtos, estoque->qtdProdutos + tamanho_incremento * sizeof(Produto));
+  }
+  if (estoque->produtos == NULL){
+    printf("Erro de alocacao de memoria.\n");
+    
+    return 0; //alocacao mal sucedida
+  }
+  for (int i = estoque->qtdProdutos; i > posicao; i--){
+    estoque->produtos[i] = estoque->produtos[i--];
+  }
+  estoque->produtos[posicao] = produto;
+  estoque->qtdProdutos++;
+
+  return 1; //insercao bem sucedida
+  
+}
 void listar (Estoque estoque);
 int removerPosicao (int posicao, Estoque *estoque);
 int removerValor (int id, Estoque *estoque);
