@@ -34,8 +34,18 @@ int main() {
 
     switch(opcao){
       case '1':
+        informacoesProduto (&produto);
+        getchar();
+        inserirInicio (produto, &estoque);
+        break;
       case '2':
+        informacoesProduto (&produto);
+        getchar();
+        break;
       case '3':
+        informacoesProduto (&produto);
+        getchar();
+        break;
       case '4':
       case '5':
       case '6':
