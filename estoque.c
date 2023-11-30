@@ -24,7 +24,6 @@ void informacoesProduto (Produto *produto){
   printf("Insira a quantidade do produto: ");
   scanf("%i", &produto->quantidade);
 
-  return 1; //produto criado com sucesso
 }
 
 int inserirInicio (Produto produto, Estoque *estoque){
