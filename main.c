@@ -56,8 +56,8 @@ int main() {
       case '7':
       case '8':
       case '0':
-      printf("Encerrando o programa...\n");
-      break;
+        printf("Encerrando o programa...\n");
+        break;
       
       default:
         printf("Opcao invalida.\n");
