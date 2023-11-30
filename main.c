@@ -62,7 +62,7 @@ int main() {
         printf("Posicoes disponiveis: %i\n", estoque.qtdProdutos + 1);
         printf("Informe a posicao na qual deseja remover o produto: ");
         scanf("%i", &posicao);
-        removerPosicao (posicao, estoque);
+        removerPosicao (posicao - 1, &estoque);
         break;
       
       case '6':
