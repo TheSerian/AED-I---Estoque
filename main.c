@@ -48,10 +48,10 @@ int main() {
       case '3':
         printf("Posicoes disponiveis: %i\n", estoque.qtdProdutos + 1);
         printf("Informe a posicao na qual deseja inserir o produto: ");
-        scanf("%i", &posicao - 1);
+        scanf("%i", &posicao);
         informacoesProduto (&produto);
         getchar();
-        inserirPosicao (produto, posicao, &estoque);
+        inserirPosicao (produto, posicao - 1, &estoque);
         break;
       
       case '4':
@@ -59,6 +59,12 @@ int main() {
         break;
       
       case '5':
+        printf("Posicoes disponiveis: %i\n", estoque.qtdProdutos + 1);
+        printf("Informe a posicao na qual deseja remover o produto: ");
+        scanf("%i", &posicao);
+        removerPosicao (posicao, estoque);
+        break;
+      
       case '6':
       case '7':
       case '8':
