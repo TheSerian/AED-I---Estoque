@@ -125,22 +125,54 @@ int removerPosicao (int posicao, Estoque *estoque){
   }
 
 int removerValor (int id, Estoque *estoque){
-  if(estoque->qtdProdutos == 0){
-    printf("Estoque vazio, impossivel remover.\n");
+    if(estoque->qtdProdutos == 0){
+            printf("Estoque vazio, impossivel remover.\n");
+
+            return 0;
+
+  }
+    for (int i = 0; i < estoque->qtdProdutos; i++){
+            if (estoque->produtos[i].id == id){
+                estoque->produtos[i] = estoque->produtos[i+1];
+                printf("Remocao bem sucedida.\n");
+                estoque->qtdProdutos--;
+
+                return 1;
+    }
+
+  }
+  printf("Nao existe um produto com esse id no estoque.\n");
+
+  return -1;
+
+}
+
+int procurar (int id, Estoque *estoque){
+    if(estoque->qtdProdutos == 0){
+            printf("Estoque vazio.\n");
 
     return 0;
   }
-  for (int i = 0; i < estoque->qtdProdutos; i++){
-    if (estoque->produtos[i].id == id){
-      estoque->produtos[i] = estoque->produtos[i+1];
-    }else{
-      printf("Nao existe um produto com esse id no estoque.\n");
-    }
-  }
-  printf("Remocao bem sucedida.\n");
-  estoque->qtdProdutos--;
+    for (int i = 0; i < estoque->qtdProdutos; i++){
+            if (estoque->produtos[i].id == id){
+                printf("O produto de id %i esta na posicao %i.\n", id, i + 1);
 
-  return 1;
+                return 1;
+
+        }
+    }
+    printf("Nao existe um produto com esse id no estoque.\n");
+
+    return -1;
 }
-int procurar (int id, Estoque *estoque);
-int tamanho (Estoque *estoque);
+
+int tamanho (Estoque *estoque){
+    if (estoque->qtdProdutos == 0){
+        printf("Estoque vazio.\n");
+
+    return 0;
+    }
+    printf("Tamanho do estoque: %i\n", estoque->qtdProdutos);
+
+    return 1;
+}
