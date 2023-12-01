@@ -1,3 +1,9 @@
+/* Trabalho 1 da disciplina de Algoritmo e Estrutura de Dados I
+   ministrada pelo docente Rene Gusmão.
+   Gestão de estoque feita pelos discentes Romildo Junior
+   e Maria Luiza Marques.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "estoque.h"
@@ -9,7 +15,7 @@ int main() {
   Estoque estoque;
   Produto produto;
   char opcao;
-  int posicao;
+  int posicao, id;
 
   estoque.produtos = malloc(tamanho_inicial * sizeof(Produto));
   estoque.qtdProdutos = 0;
@@ -72,9 +78,18 @@ int main() {
           getchar();
           removerValor (id, &estoque);
           break;
-      
+
       case '7':
+          printf("Informe a id do produto: ");
+          scanf("%i", &id);
+          getchar();
+          procurar (id, &estoque);
+          break;
+
       case '8':
+          tamanho (&estoque);
+          break;
+
       case '0':
         printf("Encerrando o programa...\n");
         break;
